@@ -14,8 +14,16 @@ export const login = credientials =>{
                 "content-type": 'application/json'
             },
             body: JSON.stringify(credientials)
-
         })
+        .then(r => r.json())
+        .then(user => {
+            if (user.error){
+                alert(user.error)
+            }else {
+                dispatch(setCurrentUser(user))
+            }
+        })
+
     }
 
 }
