@@ -26,8 +26,6 @@ const LoginForm = ({loginformData, updateLoginForm, login }) =>{
             <input name="email" value={loginformData.email} type="text" onChange={handleChange}/>
             <input name="password" value={loginformData.password} type="password" onChange={handleChange}/>
             <input value="log in" type="submit"/>
-
-
         </form>
 
     )
