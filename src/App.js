@@ -1,10 +1,8 @@
 import './App.css';
 import React, {Component} from 'react'
-import LoginForm from './components/LoginForm'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser'
-import Logout from './components/Logout'
-
+import NavBar from './components/Navbar'
 
 class App extends Component {
   
@@ -17,17 +15,12 @@ class App extends Component {
     
     return (
       <div>
-        hi
-        {this.props.currentUser ? <Logout/>:<LoginForm/>}
+       <NavBar/>
       </div>
     )
   } 
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser 
-  }
-}
 
-export default connect(mapStateToProps, {getCurrentUser})(App);
+
+export default connect(null, {getCurrentUser})(App);
