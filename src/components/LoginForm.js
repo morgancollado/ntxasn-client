@@ -23,8 +23,8 @@ const LoginForm = ({loginformData, updateLoginForm, login }) =>{
     }
     return(
         <form onSubmit={handleSubmit}>
-            <input name="email" value={loginformData.email} type="text" onChange={handleChange}/>
-            <input name="password" value={loginformData.password} type="password" onChange={handleChange}/>
+            <input name="email" value={loginformData.email} type="text" onChange={handleChange} placeholder='email'/>
+            <input name="password" value={loginformData.password} type="password" onChange={handleChange} placeholder='password'/>
             <input value="log in" type="submit"/>
         </form>
 

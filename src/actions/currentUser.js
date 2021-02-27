@@ -1,4 +1,5 @@
 import {resetLoginForm} from './loginForm'
+import { resetSignupForm } from './signupForm'
 
 export const setCurrentUser = user => {
     return {
@@ -67,4 +68,28 @@ export const getCurrentUser = () =>{
 
     }
 
+}
+
+export const signup = (credentials) => {
+    return dispatch => {
+        const info = {
+            user: credentials
+        }
+        return fetch("http://localhost:3000/api/v1/signup", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(info)
+        })
+        .then(r => r.json())
+        .then(user => {
+            if (user.error){
+                alert(user.error)
+            }else
+            dispatch(setCurrentUser(user.data))
+            dispatch(resetSignupForm())
+        })
+    }
 }

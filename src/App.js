@@ -4,6 +4,10 @@ import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser'
 import NavBar from './components/Navbar'
 import RidesContainer from './containers/RidesContainer'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import LoginForm from './components/LoginForm'
+import Logout from './components/Logout'
+import SignUpForm from './components/SignUpForm'
 
 class App extends Component {
   
@@ -15,11 +19,17 @@ class App extends Component {
   render(){
     
     return (
+      <Router>
       <div>
       <NavBar/>
-      <RidesContainer/>
-
+      
+        <Route exact path='/login' component={LoginForm}/>
+        <Route exact path='/signup' component={SignUpForm}/>
+        <Route exact path='my-rides' component={RidesContainer}/>
+       
+      
       </div>
+      </Router>
     )
   } 
 }
