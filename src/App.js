@@ -4,10 +4,11 @@ import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser'
 import NavBar from './components/Navbar'
 import RidesContainer from './containers/RidesContainer'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import { Route, withRouter} from 'react-router-dom'
 import LoginForm from './components/LoginForm'
-import Logout from './components/Logout'
 import SignUpForm from './components/SignUpForm'
+import Home from './components/Home'
+
 
 class App extends Component {
   
@@ -17,23 +18,31 @@ class App extends Component {
   }
   
   render(){
-    
+    const {loggedIn} = this.props
     return (
-      <Router>
+      
       <div>
       <NavBar/>
       
         <Route exact path='/login' component={LoginForm}/>
+        <Route exact path='/' render={()=> loggedIn ? <RidesContainer/> : <Home/>} />
+
         <Route exact path='/signup' component={SignUpForm}/>
         <Route exact path='my-rides' component={RidesContainer}/>
        
       
       </div>
-      </Router>
+      
     )
   } 
 }
 
+const mapStateToProps = state =>{ 
+  return ({
+    loggedIn: state.currentUser
+  })
+}
 
 
-export default connect(null, {getCurrentUser})(App);
+
+export default withRouter(connect(mapStateToProps, {getCurrentUser})(App));
