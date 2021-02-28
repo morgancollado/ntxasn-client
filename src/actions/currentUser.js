@@ -14,7 +14,7 @@ export const clearCurrentUser = () => {
     }
 }
 
-export const login = credientials =>{
+export const login = (credentials, history) =>{
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
             credentials: "include",
@@ -22,7 +22,7 @@ export const login = credientials =>{
             headers: {
                 "content-type": 'application/json'
             },
-            body: JSON.stringify(credientials)
+            body: JSON.stringify(credentials)
         })
         .then(r => r.json())
         .then(user => {
@@ -31,6 +31,7 @@ export const login = credientials =>{
             }else {
                 dispatch(setCurrentUser(user.data))
                 dispatch(resetLoginForm())
+                history.push('/')
             }
         })
 
