@@ -71,7 +71,7 @@ export const getCurrentUser = () =>{
 
 }
 
-export const signup = (credentials) => {
+export const signup = (credentials, history) => {
     return dispatch => {
         const info = {
             user: credentials
@@ -91,6 +91,7 @@ export const signup = (credentials) => {
             }else
             dispatch(setCurrentUser(user.data))
             dispatch(resetSignupForm())
+            history.push('/')
         })
     }
 }
