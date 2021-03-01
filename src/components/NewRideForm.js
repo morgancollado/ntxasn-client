@@ -1,10 +1,11 @@
 import React from 'react' 
 import {updateNewRideForm} from '../actions/newRideActions'
 import {connect} from 'react-redux'
+import {requestNewRide} from '../actions/newRideActions'
 
  
 
-const NewRideForm = ({newRide, updateNewRideForm, history}) =>{
+const NewRideForm = ({newRide, updateNewRideForm, requestNewRide, history}) =>{
     const handleChange = (event) =>{
         const {name, value } = event.target
         const updatedFormInfo = {
@@ -13,8 +14,13 @@ const NewRideForm = ({newRide, updateNewRideForm, history}) =>{
         }
         updateNewRideForm(updatedFormInfo)
     }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        requestNewRide(newRide, history)
+    }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <label for="date_time">Time and Date of Appointment</label>
             <input 
                 name="date_time"
@@ -53,4 +59,4 @@ const NewRideForm = ({newRide, updateNewRideForm, history}) =>{
     }
 
 
-export default connect(mapStateToProps, {updateNewRideForm})(NewRideForm)
+export default connect(mapStateToProps, {updateNewRideForm, requestNewRide})(NewRideForm)

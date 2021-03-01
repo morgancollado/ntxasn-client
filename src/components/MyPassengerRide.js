@@ -10,10 +10,10 @@ const MyPassengerRide = ({ride}) => {
             <p>Appointment Type: {ride.attributes.appointment_type}</p>
             <p>Location From: {ride.attributes.location_from}</p>
             <p>Location To: {ride.attributes.location_to}</p>
-            <p>Driver: {ride.attributes.driver.name} </p>
+            <p>Driver: {ride.attributes.driver ? ride.attributes.driver.name : "Your Driver information will appear here once a driver is assigned"} </p>
                 <ul>
-                    <li>Phone Number: {ride.attributes.driver.phone_number} </li>
-                    <li>Email: {ride.attributes.driver.email}</li>
+                    <li>Phone Number: {ride.attributes.driver ? ride.attributes.driver.phone_number: "Your Driver information will appear here once a driver is assigned"} </li>
+                    <li>Email: {ride.attributes.driver ? ride.attributes.driver.email : "Your Driver information will appear here once a driver is assigned"}</li>
                 </ul>
         </div>
     )
