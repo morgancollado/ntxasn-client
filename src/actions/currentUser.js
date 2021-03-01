@@ -38,12 +38,16 @@ export const login = (credentials, history) =>{
     }
 }
 
-export const logout = () => {
+export const logout = (history) => {
     return dispatch => {
-        dispatch(clearCurrentUser( ))
         return fetch('http://localhost:3000/api/v1/logout', {
             credientials: "include",
             method: "DELETE"
+        })
+        .then(r => r.json())
+        .then(user => {
+            dispatch(clearCurrentUser( ))
+            history.push('/')
         })
     }
 }
