@@ -6,9 +6,9 @@ import MyDriverRide from './MyDriverRide'
 
 const MyRides = (props) => {
      console.log(props)
-     const passengerRides = props.passengerRides.length > 0 ? props.passengerRides.map(r => <MyPassengerRide ride={r} key={r.id}/>) : null
+     const passengerRides = props.passengerRides.length > 0 ? props.passengerRides.map(r => <MyPassengerRide ride={r} key={r.id}/>) : []
      
-     const driverRides = props.driverRides.length > 0 ? props.driverRides.map(r => <MyDriverRide ride={r} key={r.id}/>) : null
+     const driverRides = props.driverRides.length > 0 ? props.driverRides.map(r => <MyDriverRide ride={r} key={r.id}/>) : []
 
       const requestedRides = props.requestedRides.length > 0 ? props.requestedRides.map(r => <MyPassengerRide ride={r} key={r.id}/>) : []
     return( 

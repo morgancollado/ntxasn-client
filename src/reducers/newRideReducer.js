@@ -11,6 +11,8 @@ const newRideReducer = (state = initialState, action) => {
         return action.formData
         case "RESET_NEW_RIDE_FORM":
             return initialState
+        case "SET_EDIT_FORM":
+            return action.ride
         default: 
             return state
     }

@@ -8,7 +8,8 @@ import { Route, withRouter, Switch} from 'react-router-dom'
 import LoginForm from './components/LoginForm'
 import SignUpForm from './components/SignUpForm'
 import Home from './components/Home'
-import NewRideForm from './components/NewRideForm'
+import NewRideContainer from './containers/NewRideContainer'
+import EditRideContainer from './containers/EditRideContainer';
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
   }
   
   render(){
-    const {loggedIn} = this.props
+    const {loggedIn, rides} = this.props
     return (
       
       <div>
@@ -30,7 +31,12 @@ class App extends Component {
         
         <Route exact path='/signup' component={SignUpForm}/>
         <Route exact path='/rides' component={RidesContainer}/>
-        <Route exact path='/rides/new' component={NewRideForm}/>
+        <Route exact path='/rides/new' component={NewRideContainer}/>
+        <Route exact path='/rides/:id/edit' render={props =>{
+          const ride = rides.find(ride => ride.id === props.match.params.id)
+          return <EditRideContainer ride={ride} {...props}/>
+          }
+        }/>
       </Switch>
       
       </div>
@@ -41,7 +47,8 @@ class App extends Component {
 
 const mapStateToProps = state =>{ 
   return ({
-    loggedIn: state.currentUser
+    loggedIn: state.currentUser,
+    rides: state.currentUser.attributes.passenger_rides
   })
 }
 

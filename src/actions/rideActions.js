@@ -25,3 +25,10 @@ export const getRides = () => {
 
     }
 }
+
+export const setEditForm = ride => {
+    return {
+        type: 'SET_EDIT_FORM',
+        ride: ride
+    }
+}

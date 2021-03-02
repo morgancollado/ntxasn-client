@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import {Link} from 'react-router-dom'
 
 const MyPassengerRide = ({ride}) => {
     const date_time = moment(ride.attributes.date_time).format("dddd, MMMM Do YYYY, h:mm:ss a")
@@ -15,6 +16,7 @@ const MyPassengerRide = ({ride}) => {
                     <li>Phone Number: {ride.attributes.driver ? ride.attributes.driver.phone_number: "Your Driver information will appear here once a driver is assigned"} </li>
                     <li>Email: {ride.attributes.driver ? ride.attributes.driver.email : "Your Driver information will appear here once a driver is assigned"}</li>
                 </ul>
+            <Link to={`/rides/${ride.id}/edit`}>Edit or cancel this ride</Link>
         </div>
     )
 }
