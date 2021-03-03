@@ -4,6 +4,15 @@ const currentUserReducer = (state = null, action) => {
             return action.user
         case "CLEAR_CURRENT_USER":
             return null
+        case "UPDATE_RIDE": 
+            let passenger_rides = state.attributes.passenger_rides.map(ride => ride.id === action.ride.id ? action.ride : ride)
+            return {
+                ...state,
+                attributes: {
+                    ...state.attributes,
+                    passenger_rides
+                }
+            }
         default: 
             return state
     }

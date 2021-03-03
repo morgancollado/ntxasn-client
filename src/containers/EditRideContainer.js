@@ -1,5 +1,5 @@
 import React from 'react'
-import {updateRide} from '../actions/newRideActions'
+import {updateRide, resetNewRideForm} from '../actions/newRideActions'
 import {setEditForm} from '../actions/rideActions'
 import {connect} from 'react-redux'
 import TripForm from '../components/RideForm'
@@ -12,6 +12,10 @@ class EditRideContainer extends React.Component {
 
     componentDidUpdate(prevProps) {
         this.props.ride && !prevProps.ride && this.props.setEditForm(this.props.ride.attributes)
+    }
+
+    componentWillUnmount(){
+        this.props.resetNewRideForm()
     }
     
      handleSubmit =( newRide )=> {
@@ -31,4 +35,4 @@ class EditRideContainer extends React.Component {
     }
 }
 
-export default connect(null, {updateRide, setEditForm})(EditRideContainer)
+export default connect(null, {updateRide, setEditForm, resetNewRideForm})(EditRideContainer)

@@ -71,7 +71,6 @@ export const updateRide= (rideData, history) => {
                 alert(resp.error)
             } else {
                 dispatch(updateRideConfirm(resp.data))
-                dispatch(resetNewRideForm())
                 history.push('/')
             }
         })

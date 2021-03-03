@@ -46,11 +46,20 @@ class App extends Component {
 }
 
 const mapStateToProps = state =>{ 
-  return ({
-    loggedIn: state.currentUser,
-    rides: state.currentUser.attributes.passenger_rides
-  })
-}
+  if (state.currentUser === null){
+    return ({
+      loggedIn: state.currentUser
+    })
+
+    }else {
+      return({
+        loggedIn: state.currentUser,
+        rides: state.currentUser.attributes.passenger_rides
+      })
+    }
+  }
+ 
+
 
 
 
