@@ -15,8 +15,8 @@ import EditRideContainer from './containers/EditRideContainer';
 class App extends Component {
   
   componentDidMount(){
-    if (this.props.loggedIn)
     this.props.getCurrentUser()
+    
   }
   
   render(){
@@ -24,11 +24,11 @@ class App extends Component {
     return (
       
       <div>
-      { loggedIn ? <NavBar location={this.props.location} /> : null}
+      { loggedIn ? <NavBar user={this.props.loggedIn}location={this.props.location} history={this.props.history} /> : null}
       <Switch>
+        <Route exact path='/welcome' component={Home}/>
         <Route exact path='/login' component={LoginForm}/>
         <Route exact path='/' render={()=> loggedIn ? <RidesContainer/> : <Home/>} />
-        
         <Route exact path='/signup' component={SignUpForm}/>
         <Route exact path='/rides' component={RidesContainer}/>
         <Route exact path='/rides/new' component={NewRideContainer}/>
@@ -48,7 +48,7 @@ class App extends Component {
 const mapStateToProps = state =>{ 
   if (state.currentUser === null){
     return ({
-      loggedIn: state.currentUser
+      loggedIn: !!state.currentUser
     })
 
     }else {
@@ -58,9 +58,5 @@ const mapStateToProps = state =>{
       })
     }
   }
- 
-
-
-
 
 export default withRouter(connect(mapStateToProps, {getCurrentUser})(App));

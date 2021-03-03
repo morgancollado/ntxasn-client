@@ -5,7 +5,11 @@ import { logout } from '../actions/currentUser'
 const Logout = ({ logout, history }) =>{
     
     return(
-        <form onSubmit={logout}>
+        <form onSubmit={(event) => {
+            event.preventDefault()
+            logout()
+            history.push('/')
+        }}>
             <input value="log out" type="submit"/>
         </form>
 

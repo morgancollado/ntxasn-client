@@ -39,6 +39,7 @@ export const login = (credentials, history) =>{
 }
 
 export const logout = (history) => {
+    console.log("in the logout action")
     return dispatch => {
         return fetch('http://localhost:3000/api/v1/logout', {
             credientials: "include",
@@ -46,8 +47,8 @@ export const logout = (history) => {
         })
         .then(r => r.json())
         .then(user => {
-            dispatch(clearCurrentUser( ))
-            history.push('/')
+            dispatch(clearCurrentUser(user ))
+            console.log(user)
         })
     }
 }

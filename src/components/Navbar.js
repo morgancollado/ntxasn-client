@@ -9,8 +9,8 @@ const NavBar = (props) =>{
         <div className="NavBar">
             <NavLink exact activeClassName="active" to='/rides'>My Rides</NavLink>
             <NavLink exact activeClassName="active" to='/rides/new'>Request Ride</NavLink>
-
-            {props.currentUser ? <Logout/>: null}
+            <p id="welcome">Hello, {props.user.attributes.name}</p>
+            {props.currentUser ? <Logout history={props.history}/>: null}
         </div>
     )
 }
