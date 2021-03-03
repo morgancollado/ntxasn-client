@@ -1,5 +1,5 @@
 import React from 'react'
-import {updateRide, resetNewRideForm} from '../actions/newRideActions'
+import {updateRide, resetNewRideForm, cancelRide} from '../actions/newRideActions'
 import {setEditForm} from '../actions/rideActions'
 import {connect} from 'react-redux'
 import TripForm from '../components/RideForm'
@@ -26,13 +26,16 @@ class EditRideContainer extends React.Component {
             rideId: ride.id
         }, history)
     }
-    render() {  
+    render() { 
+        const rideId = this.props.ride ? this.props.ride.id : null 
     return (
         <div>
             <TripForm editMode history={this.props.history} handleSubmit={this.handleSubmit}/>
+            <br/>
+            <button style={{color: "red"}} onClick={() => this.props.cancelRide(rideId, this.props.history)}>Cancel this ride</button>
         </div>
     )
     }
 }
 
-export default connect(null, {updateRide, setEditForm, resetNewRideForm})(EditRideContainer)
+export default connect(null, {updateRide, setEditForm, resetNewRideForm, cancelRide})(EditRideContainer)

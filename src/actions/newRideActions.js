@@ -12,6 +12,13 @@ export const addRide = ride => {
     }
 }
 
+export const cancelRideConfirmed = ride => {
+    return {
+        type: "CANCEL_RIDE",
+        ride: ride
+    }
+}
+
 export const resetNewRideForm = () => {
     return {
         type: "RESET_NEW_RIDE_FORM"
@@ -78,4 +85,26 @@ export const updateRide= (rideData, history) => {
 
     }
 
+}
+
+export const cancelRide = (rideId, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3000/api/v1/rides/${rideId}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json"
+            },
+        })
+        .then(r => r.json())
+        .then(resp => {
+            if (resp.error){
+                alert(resp.error)
+            } else {
+                dispatch(cancelRideConfirmed(rideId))
+                history.push('/')
+            }
+        })
+
+    }
 }

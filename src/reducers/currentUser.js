@@ -13,6 +13,15 @@ const currentUserReducer = (state = null, action) => {
                     passenger_rides
                 }
             }
+            case "CANCEL_RIDE":
+                const passengerRides = state.attributes.passenger_rides.filter(ride => ride.id === action.rideId ? false : true)
+                return {
+                    ...state,
+                    attributes: {
+                        ...state.attributes,
+                        passengerRides
+                    }
+                }
         default: 
             return state
     }
