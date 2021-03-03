@@ -16,9 +16,8 @@ const RideForm = ({newRide, updateNewRideForm, handleSubmit, editMode}) =>{
 
     return (
         <form onSubmit={event => {
-            event.preventDefault(
-                handleSubmit(newRide)
-            )
+            event.preventDefault()
+            handleSubmit(newRide)
         }}>
             <label for="date_time">Time and Date of Appointment</label>
             <input 

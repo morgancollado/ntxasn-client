@@ -5,8 +5,8 @@ import TripForm from '../components/RideForm'
 
 const NewRideContainer = ({history, requestNewRide}) => {
     
-    const handleSubmit =(event, newRide, history)=> {
-        event.preventDefault()
+    const handleSubmit =( newRide)=> {
+        debugger
         requestNewRide(newRide, history)
     }
 
