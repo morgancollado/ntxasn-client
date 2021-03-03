@@ -5,23 +5,23 @@ const currentUserReducer = (state = null, action) => {
         case "CLEAR_CURRENT_USER":
             return null
         case "UPDATE_RIDE": 
-            let passenger_rides = state.attributes.passenger_rides.map(ride => ride.id === action.ride.id ? action.ride : ride)
+            {let passenger_rides = state.attributes.passenger_rides.map(ride => ride.id === action.ride.id ? action.ride : ride)
             return {
                 ...state,
                 attributes: {
                     ...state.attributes,
                     passenger_rides
                 }
-            }
+            }}
             case "CANCEL_RIDE":
-                const passengerRides = state.attributes.passenger_rides.filter(ride => ride.id === action.rideId ? false : true)
+                {let passenger_rides = state.attributes.passenger_rides.filter(ride => ride.id === action.rideId ? false : true)
                 return {
                     ...state,
                     attributes: {
                         ...state.attributes,
-                        passengerRides
+                        passenger_rides
                     }
-                }
+                }}
         default: 
             return state
     }

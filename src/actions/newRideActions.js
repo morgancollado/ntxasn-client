@@ -12,10 +12,10 @@ export const addRide = ride => {
     }
 }
 
-export const cancelRideConfirmed = ride => {
+export const cancelRideConfirmed = rideId => {
     return {
         type: "CANCEL_RIDE",
-        ride: ride
+        rideId
     }
 }
 
