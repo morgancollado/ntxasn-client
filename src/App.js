@@ -11,6 +11,7 @@ import EditRideContainer from './containers/EditRideContainer';
 import StyledHome from './components/StyledHome'
 import StyledLoginForm from './components/StyledLoginForm'
 import StyledSignUpForm from './components/StyledSignupForm'
+import StyledNavBar from './components/StyledNavBar'
 
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
     return (
       
       <div>
-      { loggedIn ? <NavBar user={this.props.loggedIn}location={this.props.location} history={this.props.history} /> : null}
+      { loggedIn ? <StyledNavBar user={this.props.loggedIn}location={this.props.location} history={this.props.history} /> : null}
       <Switch>
         <Route exact path='/welcome' component={StyledHome}/>
         <Route exact path='/about' component={StyledHome}/>
