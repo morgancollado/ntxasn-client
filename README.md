@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# North Texas Abortion Support Network Client App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the front end of the NTXASN client app. It allows clients to requests rides from the network and shows clients information about their upcoming and past rides.
 
 ## Available Scripts
 
