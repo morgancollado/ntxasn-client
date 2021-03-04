@@ -2,11 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import MyPassengerRide from './MyPassengerRide'
 import MyDriverRide from './MyDriverRide'
+import StyledMyPassengerRide from './StyledMyPassengerRide'
 
 
 const MyRides = (props) => {
      console.log(props)
-     const passengerRides = props.passengerRides.length > 0 ? props.passengerRides.map(r => <MyPassengerRide ride={r} key={r.id}/>) : []
+     const passengerRides = props.passengerRides.length > 0 ? props.passengerRides.map(r => <StyledMyPassengerRide ride={r} key={r.id}/>) : []
      
      const driverRides = props.driverRides.length > 0 ? props.driverRides.map(r => <MyDriverRide ride={r} key={r.id}/>) : []
 
