@@ -3,6 +3,7 @@ import {updateRide, resetNewRideForm, cancelRide} from '../actions/newRideAction
 import {setEditForm} from '../actions/rideActions'
 import {connect} from 'react-redux'
 import TripForm from '../components/RideForm'
+import StyledRideForm from '../components/StyledRideForm'
 
 class EditRideContainer extends React.Component {
 
@@ -30,7 +31,7 @@ class EditRideContainer extends React.Component {
         const rideId = this.props.ride ? this.props.ride.id : null 
     return (
         <div>
-            <TripForm editMode history={this.props.history} handleSubmit={this.handleSubmit}/>
+            <StyledRideForm editMode history={this.props.history} handleSubmit={this.handleSubmit}/>
             <br/>
             <button style={{color: "red"}} onClick={() => this.props.cancelRide(rideId, this.props.history)}>Cancel this ride</button>
         </div>

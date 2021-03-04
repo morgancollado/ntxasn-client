@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {updateNewRideForm} from '../actions/newRideActions'
 import {connect} from 'react-redux'
+import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
 
 
 function Copyright() {
@@ -64,10 +65,10 @@ const StyledRideForm =({newRide, updateNewRideForm, handleSubmit, editMode}) => 
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LocalTaxiIcon/>
         </Avatar>
         <Typography component="h1" variant="h5">
-          Request a New Ride
+          { editMode ?  "Edit Ride": "Request a New Ride" }
         </Typography>
         <form className={classes.form} noValidate onSubmit={event => {
             event.preventDefault()
