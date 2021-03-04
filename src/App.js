@@ -5,12 +5,12 @@ import {getCurrentUser} from './actions/currentUser'
 import NavBar from './components/Navbar'
 import RidesContainer from './containers/RidesContainer'
 import { Route, withRouter, Switch} from 'react-router-dom'
-import LoginForm from './components/LoginForm'
 import SignUpForm from './components/SignUpForm'
 import NewRideContainer from './containers/NewRideContainer'
 import EditRideContainer from './containers/EditRideContainer';
 import StyledHome from './components/StyledHome'
 import StyledLoginForm from './components/StyledLoginForm'
+import StyledSignUpForm from './components/StyledSignupForm'
 
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
         <Route exact path='/about' component={StyledHome}/>
         <Route exact path='/login' component={StyledLoginForm}/>
         <Route exact path='/' render={()=> loggedIn ? <RidesContainer/> : <StyledHome/>} />
-        <Route exact path='/signup' component={SignUpForm}/>
+        <Route exact path='/signup' component={StyledSignUpForm}/>
         <Route exact path='/rides' component={RidesContainer}/>
         <Route exact path='/rides/new' component={NewRideContainer}/>
         <Route exact path='/rides/:id/edit' render={props =>{
