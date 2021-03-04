@@ -11,7 +11,7 @@ const MyRides = (props) => {
      
      const driverRides = props.driverRides.length > 0 ? props.driverRides.map(r => <MyDriverRide ride={r} key={r.id}/>) : []
 
-      const requestedRides = props.requestedRides.length > 0 ? props.requestedRides.map(r => <MyPassengerRide ride={r} key={r.id}/>) : []
+      const requestedRides = props.requestedRides.length > 0 ? props.requestedRides.map(r => <StyledMyPassengerRide ride={r} key={r.id}/>) : []
     return( 
         <div className="MyRides">
              {passengerRides.length > 0 ? passengerRides: null}

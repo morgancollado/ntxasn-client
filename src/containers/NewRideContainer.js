@@ -2,17 +2,17 @@ import React from 'react'
 import {requestNewRide} from '../actions/newRideActions'
 import {connect} from 'react-redux'
 import TripForm from '../components/RideForm'
+import StyledRideForm from '../components/StyledRideForm'
 
 const NewRideContainer = ({history, requestNewRide}) => {
     
     const handleSubmit =( newRide)=> {
-        debugger
         requestNewRide(newRide, history)
     }
 
     return (
         <div>
-            <TripForm history={history} handleSubmit={handleSubmit}/>
+            <StyledRideForm history={history} handleSubmit={handleSubmit}/>
         </div>
     )
 }
