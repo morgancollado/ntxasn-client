@@ -1,5 +1,6 @@
 import {resetLoginForm} from './loginForm'
 import { resetSignupForm } from './signupForm'
+import {clearRides} from './rideActions'
 
 export const setCurrentUser = user => {
     return {
@@ -47,6 +48,7 @@ export const logout = () => {
         .then(r => r.json())
         .then(user => {
             dispatch(clearCurrentUser(user ))
+            dispatch(clearRides())
         })
     }
 }

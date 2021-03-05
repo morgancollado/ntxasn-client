@@ -6,6 +6,8 @@ const ridesReducer = (state = [], action) => {
             return state.concat(action.ride)
         case "UPDATE_RIDE":
             return state.map(ride => ride.id === action.ride.id ? action.ride : ride)
+        case 'CLEAR_RIDES':
+            return []
         default: 
             return state
     }
