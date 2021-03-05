@@ -2,10 +2,10 @@ import './App.css';
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser'
-import NavBar from './components/Navbar'
+
 import RidesContainer from './containers/RidesContainer'
 import { Route, withRouter, Switch} from 'react-router-dom'
-import SignUpForm from './components/SignUpForm'
+
 import NewRideContainer from './containers/NewRideContainer'
 import EditRideContainer from './containers/EditRideContainer';
 import StyledHome from './components/StyledHome'
