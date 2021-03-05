@@ -30,7 +30,7 @@ const StyledMyPassengerRide = ({ride}) => {
     const date_time = moment(ride.attributes.date_time).format("dddd, MMMM Do YYYY, h:mm:ss a")
 
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -55,10 +55,7 @@ const StyledMyPassengerRide = ({ride}) => {
           Phone Number: {ride.attributes.driver ? ride.attributes.driver.phone_number: "Your Driver information will appear here once a driver is assigned"}
         </Typography>
         <Typography variant="body2" component="p">
-        Location From: {ride.attributes.location_from}
-          <br />
-          Location To: {ride.attributes.location_to}
-          <br/>
+      
           Email: {ride.attributes.driver ? ride.attributes.driver.email : "Your Driver information will appear here once a driver is assigned"}
         </Typography>
       </CardContent>
