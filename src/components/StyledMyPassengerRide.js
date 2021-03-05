@@ -5,7 +5,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 
@@ -27,7 +26,7 @@ const useStyles = makeStyles({
 });
 
 const StyledMyPassengerRide = ({ride}) => {
-    const date_time = moment(ride.attributes.date_time).format("dddd, MMMM Do YYYY, h:mm:ss a")
+    
 
   const classes = useStyles();
 
@@ -39,7 +38,7 @@ const StyledMyPassengerRide = ({ride}) => {
           My Passenger Ride
         </Typography>
         <Typography variant="h5" component="h2">
-        Appointment Date and Time: {date_time}
+        Appointment Date and Time: {ride.attributes.date_time}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
         Appointment Type: {ride.attributes.appointment_type}
