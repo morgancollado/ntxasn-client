@@ -1,6 +1,6 @@
 # North Texas Abortion Support Network Client App
 
-This is the front end of the NTXASN client app. It allows clients to requests rides from the network and shows clients information about their upcoming and past rides.
+This is the front end of the NTXASN client app. It allows clients to requests rides from the network and shows clients information about their upcoming and past rides. The backend supporting this front end app can be found at https://github.com/morgancollado/ntxasn_backend. 
 
 ## Available Scripts
 
