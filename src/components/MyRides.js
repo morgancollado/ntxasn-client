@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import MyPassengerRide from './MyPassengerRide'
 import MyDriverRide from './MyDriverRide'
 import StyledMyPassengerRide from './StyledMyPassengerRide'
 
