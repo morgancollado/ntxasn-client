@@ -33,7 +33,6 @@ export const updateRideConfirm = (ride) => {
 }
 
 export const requestNewRide = (rideData, history) => {
-    debugger
     return dispatch => {
         const info = {
             ride: rideData
