@@ -1,21 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import MyDriverRide from './MyDriverRide'
+
 import StyledMyPassengerRide from './StyledMyPassengerRide'
 
 
 const MyRides = (props) => {
      console.log(props)
+
+     const allRides = props.passengerRides.concat(props.requestedRides)
+     console.log(allRides)
+
+     const renderAllRides = allRides.map((r => <StyledMyPassengerRide ride={r} key={r.id}/>))
      const passengerRides = props.passengerRides.length > 0 ? props.passengerRides.map(r => <StyledMyPassengerRide ride={r} key={r.id}/>) : []
      
-     const driverRides = props.driverRides.length > 0 ? props.driverRides.map(r => <MyDriverRide ride={r} key={r.id}/>) : []
-
       const requestedRides = props.requestedRides.length > 0 ? props.requestedRides.map(r => <StyledMyPassengerRide ride={r} key={r.id}/>) : []
     return( 
         <div className="MyRides">
-             {passengerRides.length > 0 ? passengerRides: null}
-             {requestedRides.length > 0 ? requestedRides : null}
-             {driverRides.length > 0 ? driverRides :null}
+             {renderAllRides}
         </div>
     )
 }
